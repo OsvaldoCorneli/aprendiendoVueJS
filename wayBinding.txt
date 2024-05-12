@@ -1,0 +1,90 @@
+One-Way Binding (Enlace Unidireccional):
+En el enlace unidireccional, los datos fluyen en una sola dirección, desde el componente padre hacia el componente hijo. Esto significa que si los datos en el componente padre cambian, esos cambios se reflejarán en el componente hijo, pero no al revés. Es decir, los cambios en el hijo no afectarán al padre.
+
+Por ejemplo, si tienes una propiedad message en tu componente padre y la pasas como una propiedad al componente hijo, cualquier cambio en message en el componente padre se reflejará en el componente hijo, pero si cambias message en el componente hijo, eso no afectará al componente padre.
+
+Ejemplo de sintaxis en Vue.js:
+
+html
+Copy code
+<!-- Componente Padre -->
+<template>
+  <div>
+    <ChildComponent :propMessage="message"></ChildComponent>
+  </div>
+</template>
+<script>
+import ChildComponent from './ChildComponent.vue';
+
+export default {
+  data() {
+    return {
+      message: 'Hola desde el padre'
+    };
+  },
+  components: {
+    ChildComponent
+  }
+}
+</script>
+
+<!-- Componente Hijo -->
+<template>
+  <div>
+    <p>{{ propMessage }}</p>
+  </div>
+</template>
+Two-Way Binding (Enlace Bidireccional):
+En el enlace bidireccional, los datos fluyen en ambas direcciones, lo que significa que cualquier cambio en el componente hijo se reflejará en el componente padre, y viceversa. En Vue.js, el enlace bidireccional se logra principalmente utilizando la directiva v-model.
+
+Por ejemplo, si tienes una propiedad inputValue en tu componente padre y la pasas al componente hijo utilizando v-model, cualquier cambio en inputValue en el componente hijo se reflejará en el componente padre y viceversa.
+
+Ejemplo de sintaxis en Vue.js:
+
+html
+Copy code
+<!-- Componente Padre -->
+<template>
+  <div>
+    <ChildComponent v-model="inputValue"></ChildComponent>
+    <p>Valor en el componente padre: {{ inputValue }}</p>
+  </div>
+</template>
+<script>
+import ChildComponent from './ChildComponent.vue';
+
+export default {
+  data() {
+    return {
+      inputValue: ''
+    };
+  },
+  components: {
+    ChildComponent
+  }
+}
+</script>
+
+<!-- Componente Hijo -->
+<template>
+  <div>
+    <input type="text" v-model="internalValue">
+    <p>Valor en el componente hijo: {{ internalValue }}</p>
+  </div>
+</template>
+<script>
+export default {
+  props: ['value'],
+  data() {
+    return {
+      internalValue: this.value
+    };
+  },
+  watch: {
+    internalValue(newValue) {
+      this.$emit('input', newValue);
+    }
+  }
+}
+</script>
+Espero que esto te ayude a comprender la diferencia entre el enlace unidireccional y el enlace bidireccional en Vue.js. Si tienes alguna otra pregunta, ¡no dudes en preguntar!
