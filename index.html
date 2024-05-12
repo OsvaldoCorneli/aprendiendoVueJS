@@ -26,6 +26,16 @@
 
         <p v-for="item3 in objeto">total: {{item3.total}}</p>
 
+        <!-- Condicionales -->
+
+        <h2  v-if="flag">false if</h2>
+        <h2 v-else>flase else</h2>
+        <h2  v-if="flag1">true</h2>
+
+        <!-- cuando queremos utilizar v-if o v-else para hacer unicamente la condiciones podemos utilizar la etiqueta template -->
+
+        <!-- v-show utiliza un display None o block  -->
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -38,7 +48,10 @@
                     strings: ["A", "B", "C", "D"],
                     objeto: [
                         {total: 20},{total: 30},{total:40}
-                    ]
+                    ],
+                    flag: false,
+                    flag1: true
+                
                 }
             },
 

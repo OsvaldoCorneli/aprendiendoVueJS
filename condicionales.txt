@@ -1,0 +1,48 @@
+Por supuesto! En Vue.js, puedes usar diversas técnicas para manejar condicionales en tus componentes. Aquí tienes un resumen de las principales técnicas junto con ejemplos:
+
+Directiva v-if:
+La directiva v-if se utiliza para renderizar un elemento si una expresión se evalúa como verdadera.
+
+html
+Copy code
+<p v-if="mostrarMensaje">Este mensaje se mostrará si mostrarMensaje es verdadero.</p>
+Directiva v-else:
+La directiva v-else se utiliza junto con v-if para renderizar un elemento alternativo si la expresión de v-if es falsa.
+
+html
+Copy code
+<p v-if="condicion">Este mensaje se muestra si la condición es verdadera.</p>
+<p v-else>Este mensaje se muestra si la condición es falsa.</p>
+Directiva v-else-if:
+La directiva v-else-if se utiliza para encadenar múltiples condiciones.
+
+html
+Copy code
+<div v-if="condicion1">
+  <p>Condición 1 es verdadera.</p>
+</div>
+<div v-else-if="condicion2">
+  <p>Condición 2 es verdadera.</p>
+</div>
+<div v-else>
+  <p>Ninguna condición es verdadera.</p>
+</div>
+Operador Ternario (Expresiones en atributos):
+Puedes utilizar expresiones ternarias dentro de atributos HTML para condicionar el valor de un atributo.
+
+html
+Copy code
+<button :disabled="estaDesactivado ? 'disabled' : ''">Enviar</button>
+Operador Ternario (Renderizado condicional):
+Puedes utilizar expresiones ternarias en tus plantillas para renderizar condicionalmente contenido.
+
+html
+Copy code
+<p>{{ esVerdadero ? 'Sí' : 'No' }}</p>
+Propiedad v-show:
+La propiedad v-show se utiliza para mostrar u ocultar un elemento basado en una expresión.
+
+html
+Copy code
+<p v-show="mostrarMensaje">Este mensaje se mostrará si mostrarMensaje es verdadero.</p>
+En general, estas técnicas te permiten controlar de forma flexible qué elementos o partes de tu interfaz de usuario se muestran o se ocultan en función de las condiciones definidas en tus componentes Vue.js.
