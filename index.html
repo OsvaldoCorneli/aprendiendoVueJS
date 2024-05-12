@@ -18,6 +18,14 @@
 
         <span v-bind:title="name">{{name}}</span>
 
+        <p v-for="item in numbers" >{{item}}</p>
+        <!-- o -->
+        <p v-for="item2 in strings" v-text="item2"></p>
+
+        <!-- objeto -->
+
+        <p v-for="item3 in objeto">total: {{item3.total}}</p>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -25,7 +33,12 @@
         const Hola = {
             data(){
                 return{
-                    name: "Hola Mundo"
+                    name: "Hola Mundo",
+                    numbers: [1,2,3,4,5],
+                    strings: ["A", "B", "C", "D"],
+                    objeto: [
+                        {total: 20},{total: 30},{total:40}
+                    ]
                 }
             },
 

@@ -1,0 +1,43 @@
+En Vue.js, las directivas son atributos especiales que se utilizan para agregar funcionalidades dinámicas al DOM (Document Object Model), de manera declarativa. Las directivas se aplican a elementos HTML y se identifican mediante el prefijo v-.
+
+Aquí tienes algunas de las directivas más comunes en Vue.js:
+
+v-bind: También conocida como : abreviada, se utiliza para enlazar dinámicamente un atributo HTML a una expresión Vue. Esto significa que puedes enlazar dinámicamente valores de datos a atributos HTML.
+
+html
+Copy code
+<a v-bind:href="url">Enlace</a>
+v-if / v-else-if / v-else: Estas directivas se utilizan para condicionalmente renderizar elementos basados en expresiones Vue.
+
+html
+Copy code
+<p v-if="isTrue">Este párrafo se renderiza si isTrue es verdadero.</p>
+<p v-else>Este párrafo se renderiza si isTrue es falso.</p>
+v-for: Se utiliza para renderizar una lista de elementos basada en una matriz o un objeto iterable.
+
+html
+Copy code
+<ul>
+  <li v-for="item in items" :key="item.id">{{ item.name }}</li>
+</ul>
+v-on: También conocida como @ abreviada, se utiliza para adjuntar escuchadores de eventos a elementos HTML.
+
+html
+Copy code
+<button v-on:click="handleClick">Haz clic</button>
+v-model: Se utiliza principalmente para crear enlaces bidireccionales entre elementos de formulario y datos Vue.
+
+html
+Copy code
+<input v-model="message" type="text">
+v-show: Esta directiva se utiliza para condicionalmente mostrar u ocultar un elemento basado en una expresión.
+
+html
+Copy code
+<div v-show="isVisible">Este elemento se muestra si isVisible es verdadero.</div>
+v-pre: Esta directiva salta la compilación para este elemento y todos sus hijos. Se usa para evitar el análisis de interpolaciones Vue en este elemento.
+
+html
+Copy code
+<div v-pre>{{ no se interpretará como una interpolación de Vue }}</div>
+Estas son solo algunas de las directivas disponibles en Vue.js. Proporcionan una forma poderosa y declarativa de manipular el DOM y trabajar con datos en tu aplicación Vu
