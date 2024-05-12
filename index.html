@@ -7,11 +7,17 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{name}}</h1>
+        <!-- <h1>{{name}}</h1> -->
+        <h1 v-text="name"></h1>
         <!-- one way binding -->
         <!-- two way binding Genere un texto en wayBinding.txt con chat GPT-->
         <input type="text" v-model="name"> <!-- Directiva V-model para two way binding, Esto se refleja cambios del componente hijo al padre-->
-        <a href="https://www.google.com/">Google</a>
+        <!-- <a href="https://www.google.com/">Google</a> -->
+
+        <!-- DIRECTIVAS -->
+
+        <span v-bind:title="name">{{name}}</span>
+
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
