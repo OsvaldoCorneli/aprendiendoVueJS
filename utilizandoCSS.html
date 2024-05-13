@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- v-bind:class="" o la forma curta :class="" le avisamos que vamos a estar trabajando y activando reactividad-->
+    <div id="app" > 
+        <h1 class="bg-red-500">{{titulo}}</h1>
+
+        <h2 :class="{ 'bg-red-500' : flagCss }">{{otroTitulo}}</h2>
+
+        <button @click="changeflag"> Cambiar background </button>
+
+        <!-- cambiar clase estatica -->
+
+        
+
+    </div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+    const utlizandoCss = {
+
+        data(){
+            return{
+                titulo: "agregando CSS en Vue.js",
+                otroTitulo: "CLASE DINAMICA",
+                flagCss: true,
+
+            }
+        },
+
+        methods: {
+            changeflag(){
+
+                this.flagCss = !this.flagCss
+
+            }
+        }
+
+    } 
+
+    Vue.createApp(utlizandoCss).mount("#app")
+
+</script>   
+</body>
+</html>
