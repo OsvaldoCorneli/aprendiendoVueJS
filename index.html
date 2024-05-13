@@ -28,13 +28,22 @@
 
         <!-- Condicionales -->
 
-        <h2  v-if="flag">false if</h2>
-        <h2 v-else>flase else</h2>
+        <h2  v-if="flag" @copy="alerta">false if</h2>
+        <h2 v-else>false else</h2>
         <h2  v-if="flag1">true</h2>
 
         <!-- cuando queremos utilizar v-if o v-else para hacer unicamente la condiciones podemos utilizar la etiqueta template -->
 
         <!-- v-show utiliza un display None o block  -->
+
+                <!-- los eventos se pone el @ y luego el nombre del evento -->
+                <!-- modificadores es despues del evento, por ejemplo .stop .self .once luedo del evento @click.once -->
+            
+                <button @click.once="changeFlag">Change</button>  
+                <!-- click es el evento y once el modificador  -->
+
+
+
 
     </div>
 
@@ -70,6 +79,17 @@
                 console.log(value.value)
                 console.log(titulo.textContent)
             },
+
+            methods: {
+
+                changeFlag(){
+                    this.flag = !this.flag
+                },
+                alerta(){
+                    alert("Copiado")
+                }
+
+            }
 
 
         }

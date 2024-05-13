@@ -1,0 +1,57 @@
+
+Eventos en Vue.js:
+En Vue.js, puedes manejar eventos DOM de manera fácil y declarativa utilizando la directiva v-on. Esta directiva te permite escuchar eventos y ejecutar métodos o expresiones cuando ocurren.
+
+Sintaxis básica:
+
+html
+Copy code
+<button v-on:click="handleClick">Haz clic</button>
+En este ejemplo, estamos utilizando v-on:click para escuchar el evento de clic en el botón y llamar al método handleClick definido en el componente.
+
+Modificadores de eventos en Vue.js:
+Los modificadores son extensiones de la funcionalidad de los eventos en Vue.js que te permiten controlar mejor su comportamiento. Aquí tienes algunos de los modificadores más comunes:
+
+.stop:
+Detiene la propagación del evento.
+
+html
+Copy code
+<a v-on:click.stop="handleClick">Detener propagación</a>
+.prevent:
+Previene el comportamiento por defecto del evento.
+
+html
+Copy code
+<form v-on:submit.prevent="handleSubmit">Prevenir envío del formulario</form>
+.capture:
+Agrega un manejador de eventos en fase de captura.
+
+html
+Copy code
+<div v-on:click.capture="handleClick">Manejador de eventos en fase de captura</div>
+.self:
+Solo llama al manejador de eventos si el objetivo es el propio elemento.
+
+html
+Copy code
+<div v-on:click.self="handleClick">Manejador de eventos solo en el propio elemento</div>
+.once:
+El manejador de eventos solo se llama una vez.
+
+html
+Copy code
+<button v-on:click.once="handleClick">Haz clic solo una vez</button>
+.passive:
+Indica que el evento no ejecutará event.preventDefault(), lo que puede mejorar el rendimiento.
+
+html
+Copy code
+<div v-on:scroll.passive="handleScroll">Manejador de scroll pasivo</div>
+.native:
+Escucha eventos nativos en el elemento raíz del componente.
+
+html
+Copy code
+<MyComponent v-on:click.native="handleNativeClick"></MyComponent>
+Estos son solo algunos de los modificadores de eventos disponibles en Vue.js. Proporcionan una forma conveniente de modificar el comportamiento predeterminado de los eventos DOM y personalizar su manejo según las necesidades de tu aplicación.

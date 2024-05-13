@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="errors.length > 0">
+            <template v-for="e in errors">
+                {{e}}
+            </template>
+        </p>
+        <form @submit.prevent="submit">    
+            <input type="text" v-model="form.name">
+            <textarea name="" id="" v-model="form.text"></textarea>
+            <button type="submit" >Enviar</button>
+        </form>
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const Formulario = {
+
+            data(){
+                return{
+                    form: {
+                        name: "",
+                        text: ""
+                    },
+                    errors: []
+                }
+            },
+            methods:{
+                    
+                    submit(){
+                        
+                        this.errors = []
+
+                        if(this.form.name == ""){
+
+                                this.errors.push("el campo name no puede estar vacio")
+
+                        }
+                        console.log(this.form)
+                    }
+
+                }
+            
+}
+
+    Vue.createApp(Formulario).mount("#app")
+
+
+    </script>
+</body>
+</html>
