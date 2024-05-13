@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+
+<h1>{{titulo}}</h1>
+
+    <p>{{mGetRandom()}}</p>
+    <p>{{mGetRandom()}}</p>
+    <p>{{mGetRandom()}}</p>
+
+
+    
+    <p>{{cGetRandom}}</p>
+    <p>{{cGetRandom}}</p>
+    <p>{{cGetRandom}}</p>
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const propComputadas = {
+
+    data(){
+        return{
+            titulo: "ESTE ES PROPIEDADES COMPUTADAS"
+        }
+    },
+
+    methods: {
+
+        mGetRandom(){
+
+            return Math.random()
+
+        }
+
+    },
+
+    computed: {
+
+        cGetRandom(){
+
+            return Math.random()
+        }
+
+    }
+
+
+
+}
+
+Vue.createApp(propComputadas).mount("#app")
+
+</script>
+</body>
+</html>

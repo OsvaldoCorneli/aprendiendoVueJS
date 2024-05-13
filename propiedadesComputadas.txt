@@ -1,0 +1,52 @@
+
+Las propiedades computadas en Vue.js son funciones definidas en un componente que se comportan como propiedades de datos, pero cuyos valores se calculan en función de otras propiedades de datos. Estas propiedades computadas se almacenan en caché y se actualizan solo cuando alguna de las propiedades de las que dependen cambia. Aquí tienes una explicación más detallada:
+
+¿Qué son las propiedades computadas?
+Las propiedades computadas son funciones definidas en el objeto computed de un componente Vue. Estas funciones calculan y devuelven un valor basado en uno o más datos reactivos (propiedades de datos) del componente.
+
+¿Por qué usar propiedades computadas?
+Reactividad eficiente:
+Las propiedades computadas se recalculan solo cuando alguna de las propiedades de las que dependen cambia. Esto garantiza una reactividad eficiente y evita recálculos innecesarios.
+
+Mantenimiento del código:
+Las propiedades computadas ayudan a mantener el código limpio y organizado, especialmente cuando necesitas realizar cálculos complejos o manipulaciones de datos en tu componente.
+
+Sintaxis:
+Las propiedades computadas se definen dentro del objeto computed de un componente Vue.
+
+javascript
+Copiar código
+export default {
+  data() {
+    return {
+      radius: 5
+    };
+  },
+  computed: {
+    area() {
+      return Math.PI * Math.pow(this.radius, 2);
+    },
+    circumference() {
+      return 2 * Math.PI * this.radius;
+    }
+  }
+};
+En este ejemplo, area y circumference son propiedades computadas que calculan el área y la circunferencia de un círculo en función del radio almacenado en radius.
+
+Uso en plantillas:
+Puedes utilizar propiedades computadas en tus plantillas de la misma manera que las propiedades de datos.
+
+html
+Copiar código
+<template>
+  <div>
+    <p>Radio: {{ radius }}</p>
+    <p>Área: {{ area }}</p>
+    <p>Circunferencia: {{ circumference }}</p>
+  </div>
+</template>
+Caché y dependencias:
+Las propiedades computadas se almacenan en caché y solo se recalculan cuando alguna de las propiedades de las que dependen cambia. Vue.js realiza un seguimiento automático de las dependencias de las propiedades computadas durante la evaluación de la función, por lo que las propiedades computadas se vuelven a calcular automáticamente cuando alguna de sus dependencias cambia.
+
+Conclusión:
+Las propiedades computadas son una característica poderosa de Vue.js que te permite calcular valores de manera dinámica y eficiente en función de otras propiedades de datos en tus componentes. Su uso puede mejorar la claridad, la reactividad y el rendimiento de tu código.
