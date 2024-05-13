@@ -1,19 +1,25 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/HelloWorld.vue</code> to test hot module replacement.</p>
+  
+  <h2 v-text='msg'></h2>
+  <h4>numero de telefono {{numero}}</h4>
+  <h5>edad {{edad}}</h5>
+
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+
+  // props: ['msg'] para pasar un parametro
+
   props: {
-    msg: String
-  },
-  data() {
-    return {
-      count: 0
-    }
+
+    msg: String,
+    numero: Number,
+    edad: String
+
+
   }
+
+
 }
 </script>

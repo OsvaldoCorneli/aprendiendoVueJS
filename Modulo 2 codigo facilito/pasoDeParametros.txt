@@ -1,0 +1,87 @@
+En Vue.js con Vite, puedes pasar parámetros entre componentes de varias formas, como props, eventos, o incluso mediante el uso de un sistema de gestión de estado como Vuex. Aquí tienes una explicación detallada de cómo pasar parámetros entre componentes en Vue.js con Vite:
+
+1. Props:
+Los props son una forma de pasar datos desde un componente padre a un componente hijo. Esto permite que el componente hijo reciba y utilice datos del componente padre.
+
+Componente Padre:
+
+html
+Copiar código
+<template>
+  <ChildComponent :mensaje="mensaje"></ChildComponent>
+</template>
+
+<script>
+import ChildComponent from './ChildComponent.vue';
+
+export default {
+  components: {
+    ChildComponent
+  },
+  data() {
+    return {
+      mensaje: '¡Hola desde el componente padre!'
+    };
+  }
+}
+</script>
+Componente Hijo (ChildComponent.vue):
+
+html
+Copiar código
+<template>
+  <div>{{ mensaje }}</div>
+</template>
+
+<script>
+export default {
+  props: ['mensaje']
+}
+</script>
+2. Emisión de Eventos:
+Puedes emitir eventos desde un componente hijo y capturarlos en el componente padre para comunicar información de vuelta al componente padre.
+
+Componente Hijo (ChildComponent.vue):
+
+html
+Copiar código
+<template>
+  <button @click="enviarMensaje">Enviar Mensaje</button>
+</template>
+
+<script>
+export default {
+  methods: {
+    enviarMensaje() {
+      this.$emit('mensaje-enviado', '¡Hola desde el componente hijo!');
+    }
+  }
+}
+</script>
+Componente Padre:
+
+html
+Copiar código
+<template>
+  <ChildComponent @mensaje-enviado="capturarMensaje"></ChildComponent>
+</template>
+
+<script>
+import ChildComponent from './ChildComponent.vue';
+
+export default {
+  components: {
+    ChildComponent
+  },
+  methods: {
+    capturarMensaje(mensaje) {
+      console.log(mensaje); // Imprime: ¡Hola desde el componente hijo!
+    }
+  }
+}
+</script>
+3. Uso de un Sistema de Gestión de Estado (Vuex):
+Si tu aplicación necesita compartir datos entre múltiples componentes de forma global, puedes utilizar Vuex, que es un sistema de gestión de estado oficial para Vue.js.
+
+Conclusión:
+Estas son algunas de las formas comunes de pasar parámetros entre componentes en Vue.js con Vite. La elección de la técnica depende de la relación entre los componentes y la naturaleza de los datos que necesitas pasar. Es importante comprender cada técnica y utilizar la más adecuada para tu caso de uso específico.

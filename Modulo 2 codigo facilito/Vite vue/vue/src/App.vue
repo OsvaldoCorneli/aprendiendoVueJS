@@ -1,6 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
+
+  <HelloWorld :msg="message" :numero="numeroProps" :edad="edadprops" />
+
 </template>
 
 <script>
@@ -8,6 +10,17 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  
+  data() {
+    return {
+      message: "Mi primer componente con Vue y vite",
+      numeroProps: 23213546831,
+      edadprops: "21"
+
+
+    }
+  },
+
   components: {
     HelloWorld
   }
