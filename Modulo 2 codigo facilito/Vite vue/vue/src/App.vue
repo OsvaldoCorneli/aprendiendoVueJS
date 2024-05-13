@@ -3,9 +3,13 @@
 
   <HelloWorld :msg="message" :numero="numeroProps" :edad="edadprops" />
 
+  <Boton> ENVIAR </Boton>
+  <Boton>ELIMINAR</Boton>
+
 </template>
 
 <script>
+import Boton from './components/Boton.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -22,7 +26,8 @@ export default {
   },
 
   components: {
-    HelloWorld
+    HelloWorld,
+    Boton
   }
 }
 </script>
