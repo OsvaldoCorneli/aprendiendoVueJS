@@ -1,0 +1,106 @@
+Aquí tienes información sobre las propiedades globales y los filtros en Vue.js:
+
+Propiedades Globales:
+Las propiedades globales en Vue.js te permiten registrar métodos, directivas, filtros o componentes a nivel global, lo que significa que están disponibles en todos los componentes de tu aplicación Vue sin tener que importarlos explícitamente en cada componente. Esto es útil para compartir funcionalidades comunes en toda la aplicación.
+
+Ejemplo de Registro Global de Componentes:
+javascript
+Copiar código
+// main.js
+
+import Vue from 'vue';
+import App from './App.vue';
+import MyComponent from './components/MyComponent.vue';
+
+Vue.component('my-component', MyComponent);
+
+new Vue({
+  render: h => h(App)
+}).$mount('#app');
+En este ejemplo, el componente MyComponent se registra globalmente y está disponible para su uso en todos los componentes de la aplicación sin necesidad de importarlo en cada archivo.
+
+Filtros:
+Los filtros en Vue.js te permiten dar formato a los datos que se muestran en tus plantillas. Puedes usar filtros para transformar valores de datos antes de mostrarlos en la interfaz de usuario. Los filtros se pueden aplicar en las interpolaciones ({{ }}), en las directivas v-bind y v-model, y en las directivas de texto (v-text).
+
+Ejemplo de Uso de Filtros:
+html
+Copiar código
+<template>
+  <div>
+    <p>{{ mensaje | mayusculas }}</p>
+    <p>{{ fecha | formatoFecha }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      mensaje: 'Hola mundo',
+      fecha: new Date()
+    };
+  },
+  filters: {
+    mayusculas(valor) {
+      return valor.toUpperCase();
+    },
+    formatoFecha(valor) {
+      // Lógica para dar formato a la fecha
+    }
+  }
+};
+</script>
+En este ejemplo, se define un filtro mayusculas que convierte el texto a mayúsculas y un filtro formatoFecha que da formato a la fecha antes de mostrarla en la plantilla.
+
+Consideraciones sobre Filtros:
+Los filtros se pueden encadenar para aplicar múltiples transformaciones a un valor.
+Es importante tener en cuenta que los filtros no mutan los datos originales, sino que devuelven una nueva versión transformada de los datos.
+Conclusión:
+Las propiedades globales en Vue.js te permiten registrar funcionalidades a nivel global para que estén disponibles en todos los componentes de tu aplicación. Los filtros son útiles para dar formato a los datos en tus plantillas de manera flexible y reutilizable. Ambos son recursos poderosos que te ayudan a crear aplicaciones Vue más eficientes y fáciles de mantener.
+
+
+
+La propiedad config.globalProperties es una característica introducida en Vue 3 que te permite agregar propiedades globales personalizadas al objeto de contexto Vue global. Esto significa que puedes agregar métodos, filtros, directivas o cualquier otra funcionalidad personalizada de forma global sin tener que importarlas en cada componente individualmente. Aquí tienes un ejemplo de cómo usar config.globalProperties para registrar filtros de manera global en Vue 3:
+
+javascript
+Copiar código
+// main.js
+
+import { createApp } from 'vue';
+import App from './App.vue';
+
+const app = createApp(App);
+
+// Registro de un filtro de mayúsculas globalmente
+app.config.globalProperties.$filters = {
+  mayusculas(valor) {
+    return valor.toUpperCase();
+  },
+  formatoFecha(valor) {
+    // Lógica para dar formato a la fecha
+  }
+};
+
+app.mount('#app');
+Luego, puedes acceder a estos filtros en cualquier componente de tu aplicación sin necesidad de importarlos explícitamente:
+
+html
+Copiar código
+<template>
+  <div>
+    <p>{{ mensaje | $filters.mayusculas }}</p>
+    <p>{{ fecha | $filters.formatoFecha }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      mensaje: 'Hola mundo',
+      fecha: new Date()
+    };
+  }
+};
+</script>
+En este ejemplo, los filtros mayusculas y formatoFecha están registrados globalmente a través de config.globalProperties. Luego, se pueden acceder en cualquier componente utilizando la notación $filters. Esto proporciona una manera conveniente de compartir funcionalidades comunes en toda la aplicación sin tener que importarlas en cada componente individualmente.

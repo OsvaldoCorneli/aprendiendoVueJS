@@ -16,8 +16,25 @@
   <button @click="currentComponent = 'home'">HOME</button>
   <button @click="currentComponent = 'about'">ABOUT</button>
 
+    <br><br><br>
 
-  <Emits msg="VALOR DEL PROPS" @identificadorEmit="handlerEventoEmit"/>
+  <Emits msg="MI VALOR ES EMIIT!" @identificadorEmit="handlerEventoEmit"/>
+
+  <br>
+<Span>____________________________________________________________________________________________</Span>
+<h3>MODULO 4 CLASE 1 Propiedades Globales</h3>
+
+<h2>{{ $filters.toUppercaseLocal(textoGenerado) }}</h2>
+
+<input type="text" v-model="textoGenerado" />
+
+
+<h3>DIRECTIVAS PERSONALES ULTIMA CLASE</h3>
+
+<p v-background="'red'">
+  {{ message }}
+</p>
+
 
 </template>
 
@@ -37,7 +54,8 @@ export default {
       message: "Mi primer componente con Vue y vite",
       numeroProps: 23213546831,
       edadprops: "21",
-      currentComponent: "home"
+      currentComponent: "home",
+      textoGenerado: ""
 
 
     }
@@ -55,7 +73,7 @@ export default {
   methods:{
 
     handlerEventoEmit(value){
-      console.log("ESTOY DESDE EL APP CON EMTIR", value)
+      alert(value)
     }
 
   }
