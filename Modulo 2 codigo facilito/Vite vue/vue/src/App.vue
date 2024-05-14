@@ -6,11 +6,15 @@
   <Boton> ENVIAR </Boton>
   <Boton>ELIMINAR</Boton>
 
+
+  <Emits msg="VALOR DEL PROPS" @identificadorEmit="handlerEventoEmit"/>
+
 </template>
 
 <script>
 import Boton from './components/Boton.vue'
 import HelloWorld from './components/HelloWorld.vue'
+import Emits from './components/Emits.vue';
 
 export default {
   name: 'App',
@@ -27,7 +31,16 @@ export default {
 
   components: {
     HelloWorld,
-    Boton
+    Boton,
+    Emits
+  },
+
+  methods:{
+
+    handlerEventoEmit(value){
+      console.log("ESTOY DESDE EL APP CON EMTIR", value)
+    }
+
   }
 }
 </script>
