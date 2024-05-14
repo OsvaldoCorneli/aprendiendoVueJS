@@ -9,7 +9,10 @@
 
   <h2>AQUI ES LA CLASE 5 MODULO 2</h2>
   <!-- podemos utilizar la etiqueta <keep-alive>aqui dentro componenet</keep-alive> para que persista la informacion entre componenetes -->
-  <component :is="currentComponent"></component>
+  <Fade>
+    <component :is="currentComponent"></component>
+  </Fade>
+
   <button @click="currentComponent = 'home'">HOME</button>
   <button @click="currentComponent = 'about'">ABOUT</button>
 
@@ -24,6 +27,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import Emits from './components/Emits.vue';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
+import Fade from './transition/Fade.vue'
 
 export default {
   name: 'App',
@@ -45,6 +49,7 @@ export default {
     Emits,
     Home,
     About,
+    Fade
   },
 
   methods:{
@@ -56,3 +61,8 @@ export default {
   }
 }
 </script>
+
+<style>
+
+
+</style>
